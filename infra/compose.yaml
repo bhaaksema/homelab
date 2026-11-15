@@ -1,0 +1,12 @@
+services:
+  tailscale:
+    image: tailscale/tailscale
+    environment:
+      - TS_AUTHKEY=${TS_AUTHKEY}
+      - TS_EXTRA_ARGS=--advertise-exit-node=true --reset
+      - TS_HOSTNAME=komodo
+      - TS_ROUTES=10.0.0.0/8,192.168.0.0/16
+      - TS_STATE_DIR=/var/lib/tailscale
+    volumes:
+      - /mnt/flux/apps/tailscale:/var/lib/tailscale
+    restart: unless-stopped
