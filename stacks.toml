@@ -1,0 +1,7 @@
+[[stack]]
+name = "infra"
+[stack.config]
+server = "Local"
+auto_update = true
+repo = "bhaaksema/homelab"
+run_directory = "infra"
