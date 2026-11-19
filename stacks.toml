@@ -13,3 +13,11 @@ server = "Local"
 auto_update = true
 repo = "bhaaksema/homelab"
 run_directory = "tools"
+
+[[stack]]
+name = "media"
+[stack.config]
+server = "Local"
+auto_update = true
+repo = "bhaaksema/homelab"
+run_directory = "media"

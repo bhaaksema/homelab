@@ -1,0 +1,13 @@
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr
+    environment:
+      - PUID=568
+      - PGID=568
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /mnt/flux/apps/radarr:/config
+      - /mnt/tank/media:/media
+    ports:
+      - 7878:7878
+    restart: unless-stopped
