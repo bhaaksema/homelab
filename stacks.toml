@@ -7,17 +7,17 @@ repo = "bhaaksema/homelab"
 run_directory = "infra"
 
 [[stack]]
-name = "tools"
-[stack.config]
-server = "Local"
-auto_update = true
-repo = "bhaaksema/homelab"
-run_directory = "tools"
-
-[[stack]]
 name = "media"
 [stack.config]
 server = "Local"
 auto_update = true
 repo = "bhaaksema/homelab"
 run_directory = "media"
+
+[[stack]]
+name = "tools"
+[stack.config]
+server = "Local"
+auto_update = true
+repo = "bhaaksema/homelab"
+run_directory = "tools"

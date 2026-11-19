@@ -23,3 +23,14 @@ services:
     ports:
       - 8989:8989
     restart: unless-stopped
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr
+    environment:
+      - PUID=568
+      - PGID=568
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /mnt/flux/apps/prowlarr:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
