@@ -11,3 +11,15 @@ services:
     ports:
       - 7878:7878
     restart: unless-stopped
+  sonarr:
+    image: lscr.io/linuxserver/sonarr
+    environment:
+      - PUID=568
+      - PGID=568
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /mnt/flux/apps/sonarr:/config
+      - /mnt/tank/media:/media
+    ports:
+      - 8989:8989
+    restart: unless-stopped
