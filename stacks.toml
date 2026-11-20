@@ -13,6 +13,9 @@ server = "Local"
 auto_update = true
 repo = "bhaaksema/homelab"
 run_directory = "media"
+environment = """
+DOMAIN = [[DOMAIN]]
+"""
 
 [[stack]]
 name = "tools"

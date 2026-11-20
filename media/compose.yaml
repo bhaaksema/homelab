@@ -14,32 +14,6 @@ services:
     devices:
       - /dev/dri:/dev/dri
     restart: unless-stopped
-  prowlarr:
-    image: lscr.io/linuxserver/prowlarr
-    environment:
-      - PUID=568
-      - PGID=568
-      - TZ=Europe/Amsterdam
-    volumes:
-      - /mnt/flux/apps/prowlarr:/config
-    ports:
-      - 9696:9696
-    restart: unless-stopped
-  qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent
-    environment:
-      - PUID=568
-      - PGID=568
-      - TZ=Europe/Amsterdam
-      - TORRENTING_PORT=51413
-    volumes:
-      - /mnt/flux/apps/qbittorrent:/config
-      - /mnt/tank/media:/media
-    ports:
-      - 8080:8080
-      - 51413:51413
-      - 51413:51413/udp
-    restart: unless-stopped
   radarr:
     image: lscr.io/linuxserver/radarr
     environment:
@@ -63,4 +37,42 @@ services:
       - /mnt/tank/media:/media
     ports:
       - 8989:8989
+    restart: unless-stopped
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr
+    environment:
+      - PUID=568
+      - PGID=568
+      - TZ=Europe/Amsterdam
+    volumes:
+      - /mnt/flux/apps/prowlarr:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+  profilarr:
+    image: ghcr.io/dictionarry-hub/profilarr
+    environment:
+      - PUID=568
+      - PGID=568
+      - TZ=Europe/Amsterdam
+      - ORIGIN=https://profilarr.${DOMAIN}/
+    volumes:
+      - /mnt/flux/apps/profilarr:/config
+    ports:
+      - 6868:6868
+    restart: unless-stopped
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent
+    environment:
+      - PUID=568
+      - PGID=568
+      - TZ=Europe/Amsterdam
+      - TORRENTING_PORT=51413
+    volumes:
+      - /mnt/flux/apps/qbittorrent:/config
+      - /mnt/tank/media:/media
+    ports:
+      - 8080:8080
+      - 51413:51413
+      - 51413:51413/udp
     restart: unless-stopped
