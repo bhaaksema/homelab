@@ -5,6 +5,11 @@ server = "Local"
 auto_update = true
 repo = "bhaaksema/homelab"
 run_directory = "infra"
+environment = """
+DOMAIN = [[DOMAIN]]
+CLOUDFLARE_API_TOKEN = [[CLOUDFLARE_API_TOKEN]]
+TS_AUTHKEY = [[TS_AUTHKEY]]
+"""
 
 [[stack]]
 name = "media"

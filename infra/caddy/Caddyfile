@@ -1,0 +1,51 @@
+{
+	acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+}
+
+*.{$DOMAIN} {
+	abort
+}
+
+{$DOMAIN} {
+	redir https://truenas.{$DOMAIN}{uri}
+}
+
+truenas.{$DOMAIN} {
+	reverse_proxy host.docker.internal:81
+}
+
+komodo.{$DOMAIN} {
+	reverse_proxy host.docker.internal:30160
+}
+
+jellyfin.{$DOMAIN} {
+	reverse_proxy host.docker.internal:8096
+}
+
+radarr.{$DOMAIN} {
+	reverse_proxy host.docker.internal:7878
+}
+
+sonarr.{$DOMAIN} {
+	reverse_proxy host.docker.internal:8989
+}
+
+prowlarr.{$DOMAIN} {
+	reverse_proxy host.docker.internal:9696
+}
+
+profilarr.{$DOMAIN} {
+	reverse_proxy host.docker.internal:6868
+}
+
+torrent.{$DOMAIN} {
+	reverse_proxy host.docker.internal:8080
+}
+
+files.{$DOMAIN} {
+	reverse_proxy host.docker.internal:30334
+}
+
+speed.{$DOMAIN} {
+	reverse_proxy host.docker.internal:3000
+}

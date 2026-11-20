@@ -1,4 +1,22 @@
 services:
+  caddy:
+    image: caddybuilds/caddy-cloudflare
+    environment:
+      - DOMAIN=${DOMAIN}
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+    volumes:
+      - ./caddy:/etc/caddy
+      - /mnt/flux/apps/caddy/data:/data
+      - /mnt/flux/apps/caddy/config:/config
+    ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    cap_add:
+      - NET_ADMIN
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    restart: unless-stopped
   tailscale:
     image: tailscale/tailscale
     environment:
