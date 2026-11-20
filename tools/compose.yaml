@@ -1,4 +1,14 @@
 services:
+  filebrowser:
+    image: filebrowser/filebrowser
+    user: 568:568
+    volumes:
+      - /mnt/flux/apps/filebrowser/database:/database
+      - /mnt/flux/apps/filebrowser/config:/config
+      - /mnt/tank:/srv
+    ports:
+      - 8081:80
+    restart: unless-stopped
   openspeedtest:
     image: openspeedtest/latest
     ports:

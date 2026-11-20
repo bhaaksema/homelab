@@ -43,7 +43,7 @@ torrent.{$DOMAIN} {
 }
 
 files.{$DOMAIN} {
-	reverse_proxy host.docker.internal:30334
+	reverse_proxy host.docker.internal:8081
 }
 
 speed.{$DOMAIN} {
