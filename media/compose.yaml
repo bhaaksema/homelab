@@ -22,8 +22,6 @@ services:
     volumes:
       - /mnt/flux/apps/radarr:/config
       - /mnt/tank/media:/media
-    ports:
-      - 7878:7878
     restart: unless-stopped
   sonarr:
     image: lscr.io/linuxserver/sonarr
@@ -34,8 +32,6 @@ services:
     volumes:
       - /mnt/flux/apps/sonarr:/config
       - /mnt/tank/media:/media
-    ports:
-      - 8989:8989
     restart: unless-stopped
   prowlarr:
     image: lscr.io/linuxserver/prowlarr
@@ -45,8 +41,6 @@ services:
       - TZ=Europe/Amsterdam
     volumes:
       - /mnt/flux/apps/prowlarr:/config
-    ports:
-      - 9696:9696
     restart: unless-stopped
   profilarr:
     image: ghcr.io/dictionarry-hub/profilarr
@@ -57,8 +51,6 @@ services:
       - ORIGIN=https://profilarr.${DOMAIN}
     volumes:
       - /mnt/flux/apps/profilarr:/config
-    ports:
-      - 6868:6868
     restart: unless-stopped
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent
@@ -71,7 +63,11 @@ services:
       - /mnt/flux/apps/qbittorrent:/config
       - /mnt/tank/media:/media
     ports:
-      - 8080:8080
       - 51413:51413
       - 51413:51413/udp
     restart: unless-stopped
+
+networks:
+  default:
+    name: proxy
+    external: true
