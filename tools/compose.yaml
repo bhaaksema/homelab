@@ -6,11 +6,12 @@ services:
       - /mnt/flux/apps/filebrowser/database:/database
       - /mnt/flux/apps/filebrowser/config:/config
       - /mnt/tank:/srv
-    ports:
-      - 8081:80
     restart: unless-stopped
   openspeedtest:
     image: openspeedtest/latest
-    ports:
-      - 3000:3000
     restart: unless-stopped
+
+networks:
+  default:
+    name: proxy
+    external: true
