@@ -5,12 +5,11 @@ services:
       - PUID=568
       - PGID=568
       - TZ=Europe/Amsterdam
+      - JELLYFIN_PublishedServerUrl=https://jellyfin.${DOMAIN}
     volumes:
       - /mnt/flux/apps/jellyfin:/config
       - /mnt/tank/media:/media
-    ports:
-      - 8096:8096
-      - 7359:7359/udp
+    network_mode: host
     devices:
       - /dev/dri:/dev/dri
     restart: unless-stopped
@@ -55,7 +54,7 @@ services:
       - PUID=568
       - PGID=568
       - TZ=Europe/Amsterdam
-      - ORIGIN=https://profilarr.${DOMAIN}/
+      - ORIGIN=https://profilarr.${DOMAIN}
     volumes:
       - /mnt/flux/apps/profilarr:/config
     ports:
