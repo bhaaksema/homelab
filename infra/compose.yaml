@@ -28,3 +28,7 @@ services:
     volumes:
       - /mnt/flux/apps/tailscale:/var/lib/tailscale
     restart: unless-stopped
+
+networks:
+  default:
+    name: proxy
