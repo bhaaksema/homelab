@@ -5,7 +5,8 @@ services:
     volumes:
       - /mnt/flux/apps/filebrowser/database:/database
       - /mnt/flux/apps/filebrowser/config:/config
-      - /mnt/tank:/srv
+      - /mnt/flux:/srv/flux
+      - /mnt/tank:/srv/tank
     restart: unless-stopped
   openspeedtest:
     image: openspeedtest/latest
