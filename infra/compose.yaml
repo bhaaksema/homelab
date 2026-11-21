@@ -5,7 +5,7 @@ services:
       - DOMAIN=${DOMAIN}
       - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
     volumes:
-      - ./caddy:/etc/caddy
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - /mnt/flux/apps/caddy/data:/data
       - /mnt/flux/apps/caddy/config:/config
     ports:

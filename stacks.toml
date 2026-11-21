@@ -5,6 +5,9 @@ server = "Local"
 auto_update = true
 repo = "bhaaksema/homelab"
 run_directory = "infra"
+config_files = [
+  { path = "Caddyfile", services = ["caddy"], requires = "Restart" }
+]
 environment = """
 DOMAIN = [[DOMAIN]]
 CLOUDFLARE_API_TOKEN = [[CLOUDFLARE_API_TOKEN]]
