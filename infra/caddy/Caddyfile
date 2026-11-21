@@ -15,7 +15,7 @@ truenas.{$DOMAIN} {
 }
 
 komodo.{$DOMAIN} {
-	reverse_proxy host.docker.internal:30160
+	reverse_proxy host.docker.internal:9120
 }
 
 jellyfin.{$DOMAIN} {
