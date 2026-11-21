@@ -3,7 +3,7 @@ services:
     image: caddybuilds/caddy-cloudflare
     environment:
       - DOMAIN=${DOMAIN}
-      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+      - CF_API_TOKEN=${CF_API_TOKEN}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - /mnt/flux/apps/caddy/data:/data

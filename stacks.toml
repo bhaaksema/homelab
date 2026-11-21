@@ -10,7 +10,7 @@ config_files = [
 ]
 environment = """
 DOMAIN = [[DOMAIN]]
-CLOUDFLARE_API_TOKEN = [[CLOUDFLARE_API_TOKEN]]
+CF_API_TOKEN = [[CF_API_TOKEN]]
 TS_AUTHKEY = [[TS_AUTHKEY]]
 """
 
