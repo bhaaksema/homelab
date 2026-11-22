@@ -1,0 +1,5 @@
+[[resource_sync]]
+name = "Resource Sync"
+[resource_sync.config]
+repo = "bhaaksema/homelab"
+resource_path = ["stacks.toml", "syncs.toml"]
