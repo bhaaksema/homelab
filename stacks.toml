@@ -8,11 +8,14 @@ run_directory = "infra"
 config_files = [
   { path = "Caddyfile", services = ["caddy"], requires = "Restart" }
 ]
+extra_args = ["--remove-orphans"]
 environment = """
 DOMAIN = [[DOMAIN]]
 CF_API_TOKEN = [[CF_API_TOKEN]]
 TS_AUTHKEY = [[TS_AUTHKEY]]
 """
+
+##
 
 [[stack]]
 name = "media"
@@ -21,9 +24,12 @@ server = "Local"
 auto_update = true
 repo = "bhaaksema/homelab"
 run_directory = "media"
+extra_args = ["--remove-orphans"]
 environment = """
 DOMAIN = [[DOMAIN]]
 """
+
+##
 
 [[stack]]
 name = "tools"
@@ -32,3 +38,4 @@ server = "Local"
 auto_update = true
 repo = "bhaaksema/homelab"
 run_directory = "tools"
+extra_args = ["--remove-orphans"]
