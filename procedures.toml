@@ -1,0 +1,17 @@
+[[procedure]]
+name = "Global Auto Deploy"
+config.schedule = "Every day at 02:00"
+
+[[procedure.config.stage]]
+name = "Sync"
+enabled = true
+executions = [
+  { execution.type = "RunSync", execution.params.sync = "Resource Sync", enabled = true }
+]
+
+[[procedure.config.stage]]
+name = "Deploy"
+enabled = true
+executions = [
+  { execution.type = "BatchDeployStackIfChanged", execution.params.pattern = "*", execution.params.tags = [], enabled = true }
+]
