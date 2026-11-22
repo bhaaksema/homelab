@@ -1,5 +1,13 @@
 [[resource_sync]]
-name = "Resource Sync"
+name = "Resources"
 [resource_sync.config]
 repo = "bhaaksema/homelab"
-resource_path = ["procedures.toml", "stacks.toml", "syncs.toml"]
+resource_path = ["procedures.toml", "stacks.toml"]
+
+##
+
+[[resource_sync]]
+name = "Syncs"
+[resource_sync.config]
+repo = "bhaaksema/homelab"
+resource_path = ["syncs.toml"]
