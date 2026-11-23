@@ -1,10 +1,11 @@
 [[stack]]
-name = "infra"
+name = "homelab"
 [stack.config]
 server = "Local"
 auto_update = true
 repo = "bhaaksema/homelab"
-run_directory = "infra"
+run_directory = "stack"
+file_paths = ["infra.yaml", "media.yaml", "tools.yaml"]
 config_files = [
   { path = "Caddyfile", services = ["caddy"], requires = "Restart" }
 ]
@@ -14,28 +15,3 @@ DOMAIN = [[DOMAIN]]
 CF_API_TOKEN = [[CF_API_TOKEN]]
 TS_AUTHKEY = [[TS_AUTHKEY]]
 """
-
-##
-
-[[stack]]
-name = "media"
-[stack.config]
-server = "Local"
-auto_update = true
-repo = "bhaaksema/homelab"
-run_directory = "media"
-extra_args = ["--remove-orphans"]
-environment = """
-DOMAIN = [[DOMAIN]]
-"""
-
-##
-
-[[stack]]
-name = "tools"
-[stack.config]
-server = "Local"
-auto_update = true
-repo = "bhaaksema/homelab"
-run_directory = "tools"
-extra_args = ["--remove-orphans"]
