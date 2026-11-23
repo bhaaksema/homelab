@@ -2,7 +2,7 @@
 name = "Resources"
 [resource_sync.config]
 repo = "bhaaksema/homelab"
-resource_path = ["procedures.toml", "stacks.toml"]
+resource_path = ["procedures.toml", "servers.toml", "stacks.toml"]
 
 ##
 

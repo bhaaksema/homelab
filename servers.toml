@@ -1,0 +1,5 @@
+[[server]]
+name = "TrueNAS"
+[server.config]
+address = "https://periphery:8120"
+enabled = true
