@@ -1,3 +1,11 @@
+[[server]]
+name = "TrueNAS"
+[server.config]
+address = "https://periphery:8120"
+enabled = true
+
+##
+
 [[stack]]
 name = "homelab"
 [stack.config]
@@ -15,3 +23,11 @@ DOMAIN = [[DOMAIN]]
 CF_API_TOKEN = [[CF_API_TOKEN]]
 TS_AUTHKEY = [[TS_AUTHKEY]]
 """
+
+##
+
+[[resource_sync]]
+name = "Procedures"
+[resource_sync.config]
+repo = "bhaaksema/homelab"
+resource_path = ["procedures.toml"]
