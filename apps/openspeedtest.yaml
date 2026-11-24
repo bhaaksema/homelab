@@ -1,0 +1,6 @@
+services:
+  openspeedtest:
+    image: openspeedtest/latest
+    labels:
+      - traefik.http.routers.openspeedtest.rule=Host(`speed.${DOMAIN}`)
+    restart: unless-stopped

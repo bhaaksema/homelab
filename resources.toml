@@ -12,8 +12,15 @@ name = "homelab"
 server = "TrueNAS"
 auto_update = true
 repo = "bhaaksema/homelab"
-run_directory = "stack"
-file_paths = ["infra.yaml", "media.yaml", "tools.yaml"]
+run_directory = "apps"
+file_paths = [
+  "tailscale.yaml",
+  "traefik.yaml",
+  "jellyfin.yaml",
+  "servarr.yaml",
+  "filebrowser.yaml",
+  "openspeedtest.yaml",
+]
 extra_args = ["--remove-orphans"]
 environment = """
 CF_DNS_API_TOKEN = [[CF_API_TOKEN]]

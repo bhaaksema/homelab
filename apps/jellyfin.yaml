@@ -1,0 +1,17 @@
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin
+    environment:
+      - PUID=568
+      - PGID=568
+      - TZ=Europe/Amsterdam
+      - JELLYFIN_PublishedServerUrl=https://jellyfin.${DOMAIN}
+    volumes:
+      - /mnt/flux/apps/jellyfin:/config
+      - /mnt/tank/media:/media
+    network_mode: host
+    devices:
+      - /dev/dri:/dev/dri
+    labels:
+      - traefik.http.services.jellyfin.loadbalancer.server.port=8096
+    restart: unless-stopped
