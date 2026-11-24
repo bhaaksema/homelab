@@ -7,7 +7,11 @@ services:
       - /mnt/flux/apps/filebrowser/config:/config
       - /mnt/flux:/srv/flux
       - /mnt/tank:/srv/tank
+    labels:
+      - traefik.http.routers.filebrowser.rule=Host(`files.${DOMAIN}`)
     restart: unless-stopped
   openspeedtest:
     image: openspeedtest/latest
+    labels:
+      - traefik.http.routers.openspeedtest.rule=Host(`speed.${DOMAIN}`)
     restart: unless-stopped

@@ -14,13 +14,10 @@ auto_update = true
 repo = "bhaaksema/homelab"
 run_directory = "stack"
 file_paths = ["infra.yaml", "media.yaml", "tools.yaml"]
-config_files = [
-  { path = "Caddyfile", services = ["caddy"], requires = "Restart" }
-]
 extra_args = ["--remove-orphans"]
 environment = """
+CF_DNS_API_TOKEN = [[CF_API_TOKEN]]
 DOMAIN = [[DOMAIN]]
-CF_API_TOKEN = [[CF_API_TOKEN]]
 TS_AUTHKEY = [[TS_AUTHKEY]]
 """
 
