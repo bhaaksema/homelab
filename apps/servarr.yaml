@@ -10,7 +10,7 @@ services:
       - /mnt/tank/media:/media
     restart: unless-stopped
   sonarr:
-    image: lscr.io/linuxserver/sonarr
+    image: lscr.io/linuxserver/sonarr:develop
     environment:
       - PUID=568
       - PGID=568
